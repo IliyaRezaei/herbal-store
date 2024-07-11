@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PorbarWebApp.Data.Enums
+@inject UserManager<User> userManager
+@model List<PorbarWebApp.Models.Product>
+
+<div class="container">
+    <div class="row">
+@foreach (Product item in Model)
+{
+    
+            <div class="col-md-4 flex-column">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="mb-0">
+                            <strong><a class="text-success" href="#">@item.Name</a></strong>
+                        </h3>
+                        <div class="mb-1 text-muted">@item.Category.Name</div>
+                        <p class="card-text mb-auto">@item.Description</p>
+                        @item.Price
+                        @if (User.IsInRole(UserRoles.User))
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Details" asp-route-username="@userManager.GetUserName(User)" asp-route-productId="@item.Id">افزودن به سبد خرید</a>
+                        }
+                        else if (User.IsInRole(UserRoles.Admin))
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
+                        }
+
+
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="@item.ImageUrl" data-holder-rendered="true" style="width: 200px; height: 250px;">
+                </div>
+            </div>
+        
+}
+    </div>
+</div>
