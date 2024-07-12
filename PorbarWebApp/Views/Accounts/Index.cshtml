@@ -1,5 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<User> userManager;
 
-<h1>خوش آمدید</h1>
-<h2>@userManager.GetUserName(User)</h2>
+
+<div class="container">
+    <div class="text-center">
+        <h1>خوش آمدید</h1>
+        <h2>@userManager.GetUserName(User)</h2>
+        <hr />
+        <p class="nav-item text-center d-inline-flex">
+            <a class="btn-success nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Logout">خروج از حساب</a>
+        </p>
+    </div>
+    
+</div>
