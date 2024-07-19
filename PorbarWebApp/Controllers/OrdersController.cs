@@ -40,9 +40,13 @@ namespace PorbarWebApp.Controllers
             Product product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId);
 
             Order order = await _context.Orders.Where(u => u.UserId == user.Id).FirstOrDefaultAsync(o => o.IsSold != true && o.ProductId == product.Id);
+            
             if (order != null)
             {
-                order.ProductQuantity += 1;
+                if (order.ProductQuantity < product.Quantity)
+                {
+                    order.ProductQuantity += 1;
+                }
             }
             else
             {
