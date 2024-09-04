@@ -1,17 +1,22 @@
-# فروشگاه عطاری آنلاین
+# Online Herbal Store
 
-#اجرا و پیاده سازی برنامه
-برای نصب و استفاده از وبسایت کافیه اول repository رو pull کنین و بعدش طبق دستور العملی که توی پاورپوینتی که داخل پوشه پروژه گذاشتم عمل کنین.
+## Getting Started
 
-#از چه چیز هایی استفاده کردم
-پروژه رو با c#،bootstrap نوشتم عملیات CRUD رو پیاده سازی کردم با استفاده از LINQ کوئری ها رو تغییر دادم، قابلیت ثبت نام و ورود به خساب کاربری با تاییده ایمیل با استفاده از smtp.gmail انجام دادم(با cookie)
-سرور => sqlServer || زبان => c# || محیط => asp.net Core MVC
+1. Clone the Repository: Clone the project repository to your local machine.
+2. Configure Database: Copy your database connection string into the appsettings.json file.
 
-#Online herbal store
+## User Roles
+### Admin
+Manage categories and products.
+### Client
+Add products to the basket for checkout.
 
-#How to get started
-pull the project and follow the steps that i provided inside => PorbarWebApp/How to setup the project.pptx
+## Tools 
 
-#What tools did i use
-i used c#-bootstrap-html entirely to build the project, LINQ to make custom quieries and smtp.gmail server to send email confirmation after people registering to the application(Cookie Auth)
-database => sqlServer || language => c# || framework => asp.net Core MVC
+1. Language: C#
+2. Framework: ASP.NET Core MVC
+3. Frontend: Bootstrap, HTML
+4. Database: MS SQL
+5. Queries: EF Core, LINQ
+6. Authentication: Cookie Authentication
+7. Email Service: SMTP Gmail server for email confirmations after user registration
